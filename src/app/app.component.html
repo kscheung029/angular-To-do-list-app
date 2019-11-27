@@ -1,0 +1,32 @@
+<div>
+  <h2> To-do List App: </h2>
+  Enter Item to the list with add button. <br>
+  Click on items if it is finished!(Using highlight detective)<br>
+  Click on delete button to delete the item.<br>
+  All items are in bold using ngclass binding.
+  <div class="row">
+      <div class="col-xs-6 col-md-4">
+          <div class="input-group">
+              <input type="text" class="form-control" placeholder="Enter items" [(ngModel)]="task"/>
+              <div class="input-group-btn">
+                  <button class="btn btn-primary" type="button" (click)="Add()">
+      <span>Add</span>
+      </button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <ul class="list-group">
+    <span *ngFor="let task of tasks;let i=index" >
+      
+      <p [myHighlight] [ngClass]="myClasses">
+
+      {{ task.name }}
+
+      <button class="btn btn-default"  type="button" (click)="delete(i)">Delete</button>
+      </p>
+    </span>
+</ul>
+</div>
+
+
